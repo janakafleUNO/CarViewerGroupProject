@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'carviewer/base.html' %}
+{% load static %}
+{% block content %}
+    <body>
+    {% if user.is_authenticated %}
+        <div class="page-container">
+            <h2 class="top-menu">Hello {{ user.username }},</h2>
+            <p>Please choose from options below.</p>
+        </div>
+    {% else %}
+        <p>Please choose from options below.</p>
+    {% endif %}
+    <div class="content container">
+        <!-- Example row of columns using cards for alignment
+             The value of 'col-md-x' for all columns in the row must add up to 12
+             This page has 3 columns, each column uses col-md-4, for a total of 12 -->
+        <div class="row">
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="{% static "images/brands.jpg" %}" class="card-img-top" alt="carbrand">
+                    <div class="card-body">
+                        <h5 class="card-title">CarBrands</h5>
+                        <p class="card-text">There are many CarBrands.</p>
+                        <p><a class="btn btn-primary" href="{% url 'carviewer:carbrand_list' %}"
+                              role="button">View  CarBrands details &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+
+           <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="{% static "images/cartype.jpeg" %}" class="card-img-top" alt="cartype">
+                    <div class="card-body">
+                        <h5 class="card-title">CarTypes</h5>
+                        <p class="card-text">There are many CarTypes of each Brand</p>
+                        <p><a class="btn btn-primary" href="{% url 'carviewer:cartype_list' %}"
+                              role="button">View CarTypes details &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="{% static "images/models.jpeg" %}" class="card-img-top" alt="carmodel">
+                    <div class="card-body">
+                        <h5 class="card-title">CarModels</h5>
+                        <p class="card-text">There are many CarModels of each CarType</p>
+                        <p><a class="btn btn-primary" href="{% url 'carviewer:carmodel_list' %}"
+                              role="button">View CarModels details &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="{% static "images/carReview.jpg" %}" class="card-img-top" alt="carreview">
+                    <div class="card-body">
+                        <h5 class="card-title">CarReviews</h5>
+                        <p class="card-text">There are CarReviews of each Car</p>
+                        <p><a class="btn btn-primary" href="{% url 'carviewer:carreview_list' %}"
+                              role="button">View CarReview details &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+</html>
